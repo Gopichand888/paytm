@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+</head>
+
+<body>
+    <form name="fv" onsubmit="thankYou()">
+        <input type="text" name="name" placeholder="Enter Your Name" />
+        <input type="text" name="mobile" placeholder="Enter Your Mobile Number" />
+        <input type="text" name="email" placeholder="Enter Your Email ID" />
+        <input type="password" name="password" placeholder="enter your password" />
+        <input type="password" name="checkpassword" placeholder="check ypur password" />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Clear" />
+    </form>
+    <script>
+        function thankYou() {
+            var name = document.fv.name.value;
+            var mobile = document.fv.mobile.value;
+            var email = document.fv.email.value;
+            var reg = /^([a-zA-Z0-9\._]+)@([a-z]+).([a-z]+){2,3}$/;
+            var password=document.fv.password.value;
+            var checkpassword=documnet.fv.checkpassword.value;
+            if (name == '') {
+                alert("Please Enter Your Name");
+                return false;
+            }
+            if (name.length < 3) {
+                alert("Please Check Your Name");
+                return false;
+            }
+            if (mobile == '') {
+                alert("Please Enter Mobile Number");
+                return false;
+            }
+            if (isNaN(mobile) || mobile.length < 10) {
+                alert("Your Mobile Number is Wrong,Please Check");
+                return false;
+            }
+            if (email == '') {
+                alert("Please Enter Your Email ID");
+                return false;
+            }
+            if (!email.match(reg)) {
+                alert("Please Check Your Email ID");
+                return false;
+            }
+            if(password==''){
+                alert("please enter your password");
+                return false;
+
+            }
+            if(password.length<8){
+                alert("password must carry 8 characters");
+                return false;
+            }
+            if(checkpassword==''){
+                alert("please enter your re-type also");
+                return false;
+            
+            }
+            if(!checkpassword.match(password)){
+                alert("please check your password & re-type feild also ");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
